@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>{{ product['name'] }} - SoleStore</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        Sole<span>Store</span>
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/">Home</a>
+        <a href="/cart">🛒 Cart</a>
+
+    </div>
+
+</nav>
+
+
+<section class="product-details">
+
+    <div class="product-detail-image">
+
+        <img
+            src="{{ url_for('static', filename='images/' + product['image']) }}"
+            alt="{{ product['name'] }}"
+        >
+
+    </div>
+
+
+    <div class="product-info">
+
+        <p class="category">
+            {{ product['category'] }}
+        </p>
+
+        <h1>
+            {{ product['name'] }}
+        </h1>
+
+        <h2>
+            ₹{{ product['price'] }}
+        </h2>
+
+        <p>
+            {{ product['description'] }}
+        </p>
+
+        <a
+            href="/add-to-cart/{{ product['id'] }}"
+            class="btn"
+        >
+            Add to Cart
+        </a>
+
+    </div>
+
+</section>
+
+</body>
+
+</html>

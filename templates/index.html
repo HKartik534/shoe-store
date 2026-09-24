@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SoleStore - Shoes</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Sole<span>Store</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="#products">Shoes</a>
+            <a href="/cart">🛒 Cart</a>
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <p class="small-title">STEP INTO STYLE</p>
+
+            <h1>
+                Find Your<br>
+                Perfect Shoes
+            </h1>
+
+            <p>
+                Comfortable, stylish and made for everyday life.
+            </p>
+
+            <a href="#products" class="btn">
+                Shop Now
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+
+    <section class="products-section" id="products">
+
+        <div class="section-title">
+
+            <p>OUR COLLECTION</p>
+
+            <h2>Popular Shoes</h2>
+
+        </div>
+
+
+        <div class="products">
+
+            {% for product in products %}
+
+            <div class="card">
+
+                <div class="shoe-image">
+
+                    <img
+                        src="{{ url_for('static', filename='images/' + product['image']) }}"
+                        alt="{{ product['name'] }}"
+                    >
+
+                </div>
+
+                <div class="card-content">
+
+                    <p class="category">
+                        {{ product['category'] }}
+                    </p>
+
+                    <h3>
+                        {{ product['name'] }}
+                    </h3>
+
+                    <div class="card-bottom">
+
+                        <strong>
+                            ₹{{ product['price'] }}
+                        </strong>
+
+                        <a href="/product/{{ product['id'] }}">
+                            View
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h3>SoleStore</h3>
+
+        <p>
+            Step into comfort. Step into style.
+        </p>
+
+        <p>
+            © 2026 SoleStore
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

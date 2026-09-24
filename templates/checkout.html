@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout - SoleStore</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        Sole<span>Store</span>
+    </div>
+
+</nav>
+
+
+<section class="checkout">
+
+    <div class="checkout-box">
+
+        <h1>Checkout</h1>
+
+        <p>Total Amount: <strong>₹{{ total }}</strong></p>
+
+
+        <form method="POST">
+
+            <label>
+                Full Name
+            </label>
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Enter your name"
+                required
+            >
+
+
+            <label>
+                Email
+            </label>
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+            >
+
+
+            <label>
+                Address
+            </label>
+
+            <textarea
+                name="address"
+                placeholder="Enter your delivery address"
+                required
+            ></textarea>
+
+
+            <button type="submit" class="btn">
+                Place Order
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+</body>
+
+</html>

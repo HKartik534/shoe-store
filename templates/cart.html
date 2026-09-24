@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Your Cart - SoleStore</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        Sole<span>Store</span>
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/">Home</a>
+
+    </div>
+
+</nav>
+
+
+<section class="cart-section">
+
+    <h1>Your Shopping Cart</h1>
+
+
+    {% if products %}
+
+        {% for product in products %}
+
+        <div class="cart-item">
+
+            <img
+                src="{{ url_for('static', filename='images/' + product['image']) }}"
+                alt="{{ product['name'] }}"
+            >
+
+            <div>
+
+                <h3>
+                    {{ product['name'] }}
+                </h3>
+
+                <p>
+                    {{ product['category'] }}
+                </p>
+
+                <strong>
+                    ₹{{ product['price'] }}
+                </strong>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+
+        <div class="cart-total">
+
+            <h2>
+                Total: ₹{{ total }}
+            </h2>
+
+            <a href="/checkout" class="btn">
+                Checkout
+            </a>
+
+        </div>
+
+    {% else %}
+
+        <div class="empty-cart">
+
+            <h2>Your cart is empty 🛒</h2>
+
+            <a href="/" class="btn">
+                Start Shopping
+            </a>
+
+        </div>
+
+    {% endif %}
+
+</section>
+
+</body>
+
+</html>
